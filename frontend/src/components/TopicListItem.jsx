@@ -1,5 +1,5 @@
 import React from "react";
-
+import topics from "mocks/topics";
 import "../styles/TopicListItem.scss";
 
 // const sampleDataForTopicListItem = {
@@ -8,13 +8,13 @@ import "../styles/TopicListItem.scss";
 //   label: "Nature",
 // };
 
-const TopicListItem = (props) => {
-  const { sampleDataForTopicListItem} = props;
+const TopicListItem = ({topic}) => {
+   const { id, slug, title} = topic;
   return (
-    <div className="topic-list__item" key = {props.key}>
+    <div className="topic-list__item" >
       {/* Insert React */}
       <span className="topic-list__item span"> 
-      <p> {props.title}</p>
+      <p> {topic.title}</p>
       </span>
     </div>
   );

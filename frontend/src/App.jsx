@@ -7,6 +7,7 @@ import PhotoList from 'components/PhotoList';
 import TopicList from 'components/TopicList';
 import TopicListItem from 'components/TopicListItem';
 import TopNavigation from 'components/TopNavigationBar';
+import HomeRoute from 'routes/HomeRoute';
 // const sampleDataForPhotoListItem = {
 //   id: "1",
 //   location: {
@@ -21,11 +22,11 @@ import TopNavigation from 'components/TopNavigationBar';
 const App = () => {
   return (
     <div className="App">
-      <TopNavigation />
+      {/* <TopNavigation /> */}
       {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-      <PhotoList/>
+      {/* <PhotoList/> */}
     {/* <PhotoFavButton /> */}
-    <TopicList/>
+    <HomeRoute/>
     
     </div>
   );

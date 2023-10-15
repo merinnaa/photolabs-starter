@@ -1,5 +1,5 @@
 import React from "react";
-
+import photos from "mocks/photos";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 const sampleDataForPhotoList = [
@@ -57,11 +57,12 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
-  const handle = sampleDataForPhotoList.map((photo) => {
+  const handle = photos.map((photo) => {
     return (
       <li key={photo.id}>
         <PhotoListItem
           key={photo.id}
+          picture={photo}
           id={photo.id}
           username={photo.user.username}
           name={photo.user.name}

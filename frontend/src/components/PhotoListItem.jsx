@@ -3,35 +3,35 @@ import React, { useState } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoList from "./PhotoList";
 import PhotoFavButton from "./PhotoFavButton";
+import photos from "mocks/photos";
 
 
 
-
-const PhotoListItem = (props) => {
+const PhotoListItem = ({picture}) => {
   // const [like, setLike] = useState(false)
   /* Insert React */
   //const multiple = props.sampleDataForPhotoList[0]
-  const { sampleDataForPhotoList } = props
+  const { photos } = picture
 
  return (
-     <div  key={props.key}>
+     <div  >
       
 
 
 <section className="photo-list__user-info ">
 <div className="photo-list__item">
 <PhotoFavButton />
-        <img className="photo-list__image" src={props.full} />
+        <img className="photo-list__image" src={picture.full} />
         
         <div className="photo-list__user-details">
           
-        <img className="photo-list__user-profile" src={props.profile} />
+        <img className="photo-list__user-profile" src={picture.profile} />
          <div>
-        <p>{props.username}</p>
+        <p>{picture.username}</p>
         <p className="photo-list__user-location">
-          {props.city}
+          {picture.city}
           {','}
-          {props.country}</p>
+          {picture.country}</p>
           
           </div>
            </div>
