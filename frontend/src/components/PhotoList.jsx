@@ -56,38 +56,41 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = () => {
-  const handle = photos.map((photo) => {
+const PhotoList = ({photos, toggleFav, likedPhotos, openModal}) => {
+
     return (
-      <li key={photo.id}>
-        <PhotoListItem
-          key={photo.id}
-          picture={photo}
-          id={photo.id}
-          username={photo.user.username}
-          name={photo.user.name}
-          profile={photo.user.profile}
-          full={photo.urls.full}
-          regular={photo.urls.regular}
+      <ul className="photo-list">
+        {photos.map((photo) =>
+          <PhotoListItem
+            key={photo.id}
+            picture={photo}
+            id={photo.id}
+            username={photo.user.username}
+            name={photo.user.name}
+            profile={photo.user.profile}
+            full={photo.urls.full}
+            regular={photo.urls.regular}
 
-          city={photo.location.city}
-          country={photo.location.city}
+            city={photo.location.city}
+            country={photo.location.city}
+            toggleFav={toggleFav} 
+            isLiked={likedPhotos.includes(photo.id)} 
+            openModal={openModal}
 
-
-        />
-      </li>
+          />)}
+      </ul>
     )
   }
-  )
-  return (
-    <ul className="photo-list">
-      {/* {sampleDataForPhotoList.map((photoData) => ( 
-         <PhotoListItem key={photoData} data={photoData} />
-        
-      ))} */}
-      {handle}
-    </ul>
-  );
-};
+//   )
+//   return (
+
+//       {/* {sampleDataForPhotoList.map((photoData) => ( 
+//          <PhotoListItem key={photoData} data={photoData} />
+
+//       ))} */}
+//       {handle}
+
+//   );
+// };
 
 export default PhotoList;

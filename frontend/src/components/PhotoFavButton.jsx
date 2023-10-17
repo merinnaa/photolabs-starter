@@ -3,14 +3,22 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-  const [like, setLike] = useState(false);
+function PhotoFavButton(props) {
+  const {toggleFav} = props;
+  const [likedPhotos, setLikedPhotos] = useState(false);
   
   return (
-    <div className="photo-list__fav-icon">
+    <div className="photo-list__fav-icon" onClick={toggleFav}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
-        <button onClick={() => setLike((prevLike) => !prevLike) }> {like? '❤️':'🤍'}</button>
+        
+      <FavIcon 
+      width={22}
+      height={30}
+      fill={likedPhotos ? "red" : ""}
+      outlineWidth={1}
+      stroke={likedPhotos ? "" : "red"}
+      />
       </div>
     </div>
   );

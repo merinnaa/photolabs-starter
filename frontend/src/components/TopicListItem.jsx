@@ -8,13 +8,13 @@ import "../styles/TopicListItem.scss";
 //   label: "Nature",
 // };
 
-const TopicListItem = ({topic}) => {
-   const { id, slug, title} = topic;
+const TopicListItem = ({topic, id, slug, title}) => {
+   //const { id, slug, title} = topic;
   return (
     <div className="topic-list__item" >
       {/* Insert React */}
       <span className="topic-list__item span"> 
-      <p> {topic.title}</p>
+      <p> {title}</p>
       </span>
     </div>
   );
