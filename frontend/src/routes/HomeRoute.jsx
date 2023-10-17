@@ -6,23 +6,16 @@ import PhotoList from 'components/PhotoList';
 import FavBadge from 'components/FavBadge';
 import PhotoDetailsModal from './PhotoDetailsModal';
 const HomeRoute = (props) => {
-  const [likedPhotos, setLikedPhotos] = useState([]);
-const {openModal } = props
-  const toggleFav = (photoId) => {
-    if (likedPhotos.includes(photoId)) {
-      
-      setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
-    } else {
-      
-      setLikedPhotos([...likedPhotos, photoId]);
-    }
-  };
+  
+const {openModal,setSelectedPhoto,likedPhotos,toggleFav } = props
+
+  
   return (
     <div className="home-route">
       
       <TopNavigation likedPhotos={likedPhotos}/>
       
-      <PhotoList   toggleFav={toggleFav} likedPhotos={likedPhotos} photos={photos}  openModal={openModal} />
+      <PhotoList  setSelectedPhoto={setSelectedPhoto} toggleFav={toggleFav} likedPhotos={likedPhotos} photos={photos}  openModal={openModal} />
 
     </div>
   );

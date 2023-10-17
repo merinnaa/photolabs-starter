@@ -15,9 +15,11 @@ function PhotoFavButton(props) {
       <FavIcon 
       width={22}
       height={30}
-      fill={likedPhotos ? "red" : ""}
+      //selected={likedPhotos}
+       fill={likedPhotos ? "red" : ""}
       outlineWidth={1}
-      stroke={likedPhotos ? "" : "red"}
+       stroke={likedPhotos ? "" : "red"}
+
       />
       </div>
     </div>

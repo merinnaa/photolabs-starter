@@ -56,7 +56,7 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = ({photos, toggleFav, likedPhotos, openModal}) => {
+const PhotoList = ({photos, toggleFav, likedPhotos, openModal, setSelectedPhoto}) => {
 
     return (
       <ul className="photo-list">
@@ -76,7 +76,8 @@ const PhotoList = ({photos, toggleFav, likedPhotos, openModal}) => {
             toggleFav={toggleFav} 
             isLiked={likedPhotos.includes(photo.id)} 
             openModal={openModal}
-
+            similarPhotos={photo.similar_photos}
+           setSelectedPhoto={setSelectedPhoto}
           />)}
       </ul>
     )

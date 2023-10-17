@@ -22,14 +22,24 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [selectedPhoto, setSelectedPhoto] = useState({});
+  const [likedPhotos, setLikedPhotos] = useState([]);
   const openModal = (id) => {
     setIsModalOpen(true);
-    
+    console.log()
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+  const toggleFav = (photoId) => {
+    if (likedPhotos.includes(photoId)) {
+      
+      setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
+    } else {
+      
+      setLikedPhotos([...likedPhotos, photoId]);
+    }
   };
   return (
     <div className="App">
@@ -39,11 +49,18 @@ const App = () => {
       {/* <PhotoFavButton /> */}
       <HomeRoute
         openModal={openModal}
+        setSelectedPhoto={setSelectedPhoto}
+        toggleFav={toggleFav}
+        likedPhotos={likedPhotos}
       />
       {/* <PhotoDetailsModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
       { isModalOpen && < PhotoDetailsModal
       isModalOpen={isModalOpen}
         closeModal={closeModal}
+        selectedPhoto={selectedPhoto}
+        toggleFav={toggleFav}
+        likedPhotos={likedPhotos}
+          
         
       />}
 
