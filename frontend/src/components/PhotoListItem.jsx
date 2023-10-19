@@ -1,24 +1,16 @@
-import React, { useState } from "react";
-import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import React from "react";
 import "../styles/PhotoListItem.scss";
-import PhotoList from "./PhotoList";
 import PhotoFavButton from "./PhotoFavButton";
 
-
-
-
 const PhotoListItem = (props) => {
-  console.log('photolistitem',props.id,props.isLiked)
+
 const handleClick = () =>{
   props.setSelectedPhoto({...props});
-  //props.openModal()
 }
+
   return (
     <div  >
-
-
-
-      <section className="photo-list__user-info ">
+<section className="photo-list__user-info ">
         <div className="photo-list__item">
           <PhotoFavButton
             isLiked={props.isLiked}

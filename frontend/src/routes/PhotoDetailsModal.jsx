@@ -2,10 +2,9 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
-import PhotoListItem from 'components/PhotoListItem';
 import PhotoFavButton from 'components/PhotoFavButton';
-import useApplicationData from 'hooks/useApplicationData';
-const PhotoDetailsModal = ({ closeModal, likedPhotos, toggleFav, photos, selectedPhoto }) => {
+
+const PhotoDetailsModal = ({ closeModal, likedPhotos, toggleFav, selectedPhoto }) => {
 
   const { full, profile, username, city, country, similarPhotos } = selectedPhoto;
 
@@ -52,7 +51,7 @@ const PhotoDetailsModal = ({ closeModal, likedPhotos, toggleFav, photos, selecte
 
       <h2 className="photo-details-modal__header">Similar Photos</h2>
 
-      {/* Display similar photos */}
+      
       <ul className="photo-list">
         <PhotoList
           photos={Object.values(similarPhotos)}
