@@ -71,13 +71,13 @@ const App = () => {
 
       />
 
-      {state.selectedPhoto && < PhotoDetailsModal
+      {state.showModal && < PhotoDetailsModal
         isModalOpen={state.isModalOpen}
         closeModal={closeModal}
         //selectedPhoto={selectedPhoto}
         //toggleFav={toggleFav}
         likedPhotos={state.likedPhotos}
-        selectedPhoto={state.selectedPhoto}
+        selectedPhoto={state.clickedPhoto}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         toggleFav={updateToFavPhotoIds}
 
