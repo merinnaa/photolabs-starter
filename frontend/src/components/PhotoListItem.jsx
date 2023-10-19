@@ -8,10 +8,11 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-  console.log(props)
+  console.log('photolistitem',props.id,props.isLiked)
 const handleClick = () =>{
   props.setSelectedPhoto({...props});
-  props.openModal()}
+  //props.openModal()
+}
   return (
     <div  >
 

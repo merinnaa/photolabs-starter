@@ -9,6 +9,8 @@ import TopicListItem from 'components/TopicListItem';
 import TopNavigation from 'components/TopNavigationBar';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
+import photos from 'mocks/photos';
 // const sampleDataForPhotoListItem = {
 //   id: "1",
 //   location: {
@@ -21,47 +23,66 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 // };
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState({});
-  const [likedPhotos, setLikedPhotos] = useState([]);
-  const openModal = (id) => {
-    setIsModalOpen(true);
-    console.log()
-  };
+  const {
+    state,
+    onPhotoSelect,
+    updateToFavPhotoIds,
+    onLoadTopic,
+    onClosePhotoDetailsModal,
+    closeModal,
+  } = useApplicationData();
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const toggleFav = (photoId) => {
-    if (likedPhotos.includes(photoId)) {
-      
-      setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
-    } else {
-      
-      setLikedPhotos([...likedPhotos, photoId]);
-    }
-  };
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [selectedPhoto, setSelectedPhoto] = useState({});
+  // const [likedPhotos, setLikedPhotos] = useState([]);
+  // const openModal = (id) => {
+  //   setIsModalOpen(true);
+  //   console.log()
+  // };
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
+  // const toggleFav = (photoId) => {
+  //   if (likedPhotos.includes(photoId)) {
+
+  //     setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
+  //   } else {
+
+  //     setLikedPhotos([...likedPhotos, photoId]);
+  //   }
+  // };
+  console.log('hi',state.likedPhotos)
   return (
     <div className="App">
-      {/* <TopNavigation /> */}
-      {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-      {/* <PhotoList/> */}
-      {/* <PhotoFavButton /> */}
+
       <HomeRoute
-        openModal={openModal}
-        setSelectedPhoto={setSelectedPhoto}
-        toggleFav={toggleFav}
-        likedPhotos={likedPhotos}
+        openModal={state.openModal}
+        //setSelectedPhoto={setSelectedPhoto}
+        //toggleFav={toggleFav}
+        //likedPhotos={likedPhotos}
+        isModalOpen={state.isModalOpen}
+        photos={state.photos}
+        selectedPhoto={state.selectedPhoto}
+        likedPhotos={state.likedPhotos}
+        setSelectedPhoto={onPhotoSelect}
+        toggleFav={updateToFavPhotoIds}
+        onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+
       />
-      {/* <PhotoDetailsModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
-      { isModalOpen && < PhotoDetailsModal
-      isModalOpen={isModalOpen}
+
+      {state.selectedPhoto && < PhotoDetailsModal
+        isModalOpen={state.isModalOpen}
         closeModal={closeModal}
-        selectedPhoto={selectedPhoto}
-        toggleFav={toggleFav}
-        likedPhotos={likedPhotos}
-          
-        
+        //selectedPhoto={selectedPhoto}
+        //toggleFav={toggleFav}
+        likedPhotos={state.likedPhotos}
+        selectedPhoto={state.selectedPhoto}
+        onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+        toggleFav={updateToFavPhotoIds}
+
+
+
       />}
 
     </div>

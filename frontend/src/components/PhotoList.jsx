@@ -57,7 +57,7 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = ({photos, toggleFav, likedPhotos, openModal, setSelectedPhoto}) => {
-
+console.log("hello",photos)
     return (
       <ul className="photo-list">
         {photos.map((photo) =>

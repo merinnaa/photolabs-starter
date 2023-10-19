@@ -5,20 +5,23 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   const {toggleFav} = props;
-  const [likedPhotos, setLikedPhotos] = useState(false);
-  
+  //const [likedPhotos, setLikedPhotos] = useState(false);
+  // const handleToggleLike = () => {
+  //   //setLikedPhotos(!likedPhotos);
+  //   toggleFav();
+  // };
   return (
-    <div className="photo-list__fav-icon" onClick={toggleFav}>
+    <div className="photo-list__fav-icon" onClick={props.toggleFav}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
         
       <FavIcon 
-      width={22}
-      height={30}
-      //selected={likedPhotos}
-       fill={likedPhotos ? "red" : ""}
-      outlineWidth={1}
-       stroke={likedPhotos ? "" : "red"}
+      // width={22}
+      // height={30}
+      selected={props.isLiked}
+       //fill={props.isLiked ? "red" : ""}
+      //outlineWidth={1}
+       //stroke={props.isLiked ? "" : "red"}
 
       />
       </div>
