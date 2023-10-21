@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -67,34 +67,34 @@ const useApplicationData = () => {
 
   });
 
-  // Functions for dispatching actions
+  //Functions for dispatching actions
 
-  // useEffect(() => {
-  //   // Fetch Photo data
-  //   fetch("/api/photos")
-  //     .then((response) => response.json())
-  //     .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
-
-
-  //   // Fetch topic data
-  //   fetch("/api/topics")
-  //     .then((response) => response.json())
-  //     .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  useEffect(() => {
+    // Fetch Photo data
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
 
 
-  // }, []);
+   // Fetch topic data
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
 
-  // // Fetch photos by categories or topics
-  // const fetchPhotosByTopic = (topicId) => {
-  //   return fetch(`/api/topics/photos/${topicId}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
 
-  //       return dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+  }, []);
 
-  //     })
-  //     .catch((error) => console.error('Error:', error));
-  // };
+  // Fetch photos by categories or topics
+  const fetchPhotosByTopic = (topicId) => {
+    return fetch(`/api/topics/photos/${topicId}`)
+      .then((response) => response.json())
+      .then((data) => {
+
+        return dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+
+      })
+      .catch((error) => console.error('Error:', error));
+  };
 
   
   const onPhotoSelect = (photo) => {
@@ -135,6 +135,7 @@ const useApplicationData = () => {
 
   };
 };
+
 
 
 export default useApplicationData;

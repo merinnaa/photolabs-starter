@@ -13,7 +13,7 @@ const db = require("./db")
 const photos = require("./routes/photos");
 const topics = require("./routes/topics");
 
-function read(file) {
+const read = function(file) {
   return new Promise((resolve, reject) => {
     fs.readFile(
       file,
