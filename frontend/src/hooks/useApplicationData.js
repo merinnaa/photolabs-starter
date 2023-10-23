@@ -131,7 +131,7 @@ const useApplicationData = () => {
     updateToFavPhotoIds,
     onClosePhotoDetailsModal,
     closeModal,
-    
+    fetchPhotosByTopic,
 
   };
 };
