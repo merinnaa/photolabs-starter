@@ -71,11 +71,11 @@ const useApplicationData = () => {
 
   useEffect(() => {
     // Fetch Photo data
+   
     fetch("/api/photos")
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
-
-
+     
    // Fetch topic data
     fetch("/api/topics")
       .then((response) => response.json())

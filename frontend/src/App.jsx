@@ -22,9 +22,10 @@ const App = () => {
     <div className="App">
 
       <HomeRoute
+      topics={state.topicData}
         openModal={state.openModal}
         isModalOpen={state.isModalOpen}
-        photos={state.photos}
+        photos={state.photoData}
         selectedPhoto={state.selectedPhoto}
         likedPhotos={state.likedPhotos}
         setSelectedPhoto={onPhotoSelect}

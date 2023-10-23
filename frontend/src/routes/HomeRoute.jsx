@@ -1,11 +1,11 @@
 import React from 'react';
-import photos from 'mocks/photos';
+//import photos from 'mocks/photos';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const {openModal,setSelectedPhoto,likedPhotos,toggleFav } = props
+  const {openModal,setSelectedPhoto,likedPhotos,toggleFav,photos } = props
 
   
   return (
