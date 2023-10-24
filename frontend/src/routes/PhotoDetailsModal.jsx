@@ -15,9 +15,19 @@ const PhotoDetailsModal = ({ closeModal, likedPhotos, toggleFav, selectedPhoto }
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" >
+        
         <img src={closeSymbol} alt="close symbol" onClick={closeModal} />
       </button>
       <div className="photo-details-modal__images">
+ {/* Render the favorite button/icon within the modal */}
+ <div className='photo-large__fav-icon'>
+          <PhotoFavButton
+          isLiked={likedPhotos.includes(selectedPhoto.id)}
+            initialSelected={likedPhotos}
+            photoId={selectedPhoto.id}
+            toggleFav={handleToggleFavorite}
+          />
+        </div>
         <img
           src={full}
           alt={`Photo by ${profile}`}
@@ -39,14 +49,7 @@ const PhotoDetailsModal = ({ closeModal, likedPhotos, toggleFav, selectedPhoto }
           </span>
         </div>
 
-        {/* Render the favorite button/icon within the modal */}
-        <div className='photo-large__fav-icon'>
-          <PhotoFavButton
-            initialSelected={likedPhotos}
-            photoId={selectedPhoto.id}
-            toggleFav={handleToggleFavorite}
-          />
-        </div>
+       
       </div>
 
       <h2 className="photo-details-modal__header">Similar Photos</h2>

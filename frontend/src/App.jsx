@@ -14,6 +14,7 @@ const App = () => {
     onLoadTopic,
     onClosePhotoDetailsModal,
     closeModal,
+    fetchPhotosByTopic,
   } = useApplicationData();
 
 
@@ -31,7 +32,7 @@ const App = () => {
         setSelectedPhoto={onPhotoSelect}
         toggleFav={updateToFavPhotoIds}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
-
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
 
       {state.showModal && < PhotoDetailsModal
