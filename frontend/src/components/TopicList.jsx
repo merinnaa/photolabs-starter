@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import topics from "mocks/topics";
+
 
 
 const TopicList = ({ topics, fetchPhotosByTopic }) => {
@@ -23,4 +23,4 @@ const TopicList = ({ topics, fetchPhotosByTopic }) => {
 };
 
 export default TopicList;
-//export default TopicList;
+
